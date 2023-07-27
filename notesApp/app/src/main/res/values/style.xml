@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize the action bar here -->
+        <item name="android:background">@color/black</item>
+
+        <!-- Add other customizations for the app bar as needed -->
+    </style>
+
+    <!-- Define a custom title text style (optional) -->
+    <style name="YourCustomTitleTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <!-- Customize the title text style here -->
+        <item name="android:textColor">@color/black</item>
+        <!-- Add other customizations for the title text style as needed -->
+    </style>
+</resources>
