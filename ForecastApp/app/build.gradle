@@ -1,0 +1,80 @@
+buildscript {
+
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        // Other dependencies ...
+        
+    }
+}
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'com.google.dagger.hilt.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.jonkoit.forecastapp'
+    compileSdk 33 // Set the API level you want to compile against
+
+    defaultConfig {
+        applicationId "com.jonkoit.forecastapp"
+        minSdk 21 // Minimum Android version required for the app to run
+        targetSdk 33 // Target Android version for the app
+        versionCode 1 // Increment this for each version release
+        versionName "1.0" // Version name shown to users
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false // Whether to enable code shrinking and obfuscation for release builds
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8 // Set the Java source compatibility to 1.8
+        targetCompatibility JavaVersion.VERSION_1_8 // Set the target Java version to 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8' // Set the JVM target to 1.8 for Kotlin
+    }
+}
+
+dependencies {
+
+
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1" // ViewModel support for lifecycle-aware components
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1" // LiveData support for lifecycle-aware components
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8" // Kotlin standard library
+
+
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
+
+
+    implementation "com.squareup.retrofit2:retrofit:2.9.0" // Retrofit for API calls
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0" // Gson converter for Retrofit
+    implementation "com.google.code.gson:gson:2.8.9" // Gson library for JSON parsing
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2" // Kotlin Coroutines for asynchronous programming
+
+    implementation 'androidx.core:core-ktx:1.10.1' // AndroidX Core KTX for Kotlin extensions
+    implementation 'androidx.appcompat:appcompat:1.6.1' // AndroidX AppCompat library
+    implementation 'com.google.android.material:material:1.9.0' // Material Design components
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // ConstraintLayout for flexible UI design
+
+    testImplementation 'junit:junit:4.13.2' // JUnit for unit testing
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5' // JUnit extensions for Android testing
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1' // Espresso for UI testing
+}
+kapt {
+    correctErrorTypes true
+}
+
